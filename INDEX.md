@@ -59,6 +59,9 @@ Tasks involving:
 - Databases
 - External side effects
 - Destructive operations
+- File generation
+- File conversion
+- User-facing artifacts
 
 should load additional relevant skills.
 
@@ -104,7 +107,7 @@ Completion Verification
 
 ## Principle 4 — Specialized Skills Supplement General Skills
 
-Platform-specific skills do not replace general engineering skills.
+Platform and domain-specific skills do not replace general engineering skills.
 
 For example:
 
@@ -114,15 +117,11 @@ Vercel
 Deployment + Secrets Management + Build Verification
 ```
 
-Similarly:
-
 ```text
 GitHub
     supplements
 Git Workflow
 ```
-
-and:
 
 ```text
 Code Documentation
@@ -130,15 +129,21 @@ Code Documentation
 Documentation
 ```
 
+```text
+PDF Creation
+    supplements
+Document Design + File Validation
+```
+
+Specialized skills should provide domain-specific instructions while general skills provide reusable engineering principles.
+
 ---
 
 ## Principle 5 — Verification Is Mandatory
 
-A task should not be reported as complete only because code was generated.
+A task should not be reported as complete only because code or an artifact was generated.
 
-Relevant verification skills should be selected whenever implementation occurs.
-
-At minimum, consider:
+For software implementation, consider:
 
 ```text
 Testing
@@ -147,13 +152,26 @@ Self Review
 Completion Verification
 ```
 
+For generated documents/artifacts, consider:
+
+```text
+File Validation
+Completion Verification
+```
+
+For user-facing visual artifacts, also consider:
+
+```text
+Document Design
+```
+
 ---
 
 # 3. Priority System
 
 Each skill has an approximate priority.
 
-### P0 — Mandatory Core
+## P0 — Mandatory Core
 
 Load for most substantial software-engineering tasks.
 
@@ -165,7 +183,11 @@ Self Review
 Completion Verification
 ```
 
-### P1 — Strongly Recommended
+For artifact-generation tasks, the relevant artifact creation and validation skills become part of the mandatory task path.
+
+---
+
+## P1 — Strongly Recommended
 
 Load when relevant to the task.
 
@@ -182,7 +204,9 @@ Error Recovery
 Change Impact Analysis
 ```
 
-### P2 — Specialized
+---
+
+## P2 — Specialized
 
 Load when the task enters the corresponding domain.
 
@@ -201,9 +225,12 @@ Linting
 Dependency Management
 Deployment
 Documentation
+Documents & Artifacts
 ```
 
-### P3 — Platform-Specific
+---
+
+## P3 — Platform-Specific
 
 Load when the task explicitly involves the platform.
 
@@ -536,6 +563,7 @@ Act as the final evidence-based gate before declaring a task complete.
 - Reporting deployment success
 - Completing a fix
 - Completing automated work
+- Delivering generated artifacts
 
 **Triggers**
 
@@ -546,6 +574,7 @@ finished
 verify
 ready
 completion
+deliver
 ```
 
 **Rule**
@@ -585,6 +614,7 @@ Execute shell commands while controlling security, scope, destructive effects, p
 - Executing generated code
 - Using Git commands
 - Running deployment commands
+- Running document-generation utilities
 
 **Triggers**
 
@@ -1458,13 +1488,385 @@ Coding
 
 ---
 
-# 12. Autonomous Agent Skills
+# 12. Documents & Artifact Skills
+
+These skills are responsible for **creating, converting, designing, and validating actual files**.
+
+They are intentionally separate from the general `Documentation` skills.
+
+```text
+Documentation
+    = what good project documentation should contain
+
+Documents & Artifacts
+    = how to generate and validate actual document files
+```
+
+---
+
+## 12.1 PDF Creation
+
+**Path**
+
+```text
+documents/pdf-creation/SKILL.md
+```
+
+**Purpose**
+
+Create professional PDF documents programmatically.
+
+**Use when**
+
+- Creating PDFs
+- Creating reports
+- Creating study material
+- Creating certificates
+- Creating invoices
+- Creating technical documents
+- Exporting content to PDF
+
+**Triggers**
+
+```text
+PDF
+pdf
+create PDF
+generate PDF
+report PDF
+export PDF
+```
+
+**Usually combine with**
+
+```text
+Document Design
+File Validation
+Completion Verification
+```
+
+---
+
+## 12.2 DOCX Creation
+
+**Path**
+
+```text
+documents/docx-creation/SKILL.md
+```
+
+**Purpose**
+
+Create editable Microsoft Word documents.
+
+**Use when**
+
+- Creating `.docx`
+- Creating reports
+- Creating assignments
+- Creating resumes
+- Creating proposals
+- Creating editable documents
+
+**Triggers**
+
+```text
+DOCX
+docx
+Word document
+Microsoft Word
+create Word file
+generate docx
+```
+
+**Usually combine with**
+
+```text
+Document Design
+File Validation
+Completion Verification
+```
+
+---
+
+## 12.3 PPTX Creation
+
+**Path**
+
+```text
+documents/pptx-creation/SKILL.md
+```
+
+**Purpose**
+
+Create PowerPoint presentations.
+
+**Use when**
+
+- Creating presentations
+- Creating pitch decks
+- Creating project demos
+- Creating school presentations
+- Creating technical presentations
+- Creating hackathon decks
+
+**Triggers**
+
+```text
+PPTX
+pptx
+PowerPoint
+presentation
+slides
+slide deck
+pitch deck
+```
+
+**Usually combine with**
+
+```text
+Document Design
+File Validation
+Completion Verification
+```
+
+---
+
+## 12.4 Spreadsheet Creation
+
+**Path**
+
+```text
+documents/spreadsheet-creation/SKILL.md
+```
+
+**Purpose**
+
+Create structured Excel workbooks.
+
+**Use when**
+
+- Creating `.xlsx`
+- Creating spreadsheets
+- Creating trackers
+- Creating dashboards
+- Creating financial models
+- Creating data reports
+
+**Triggers**
+
+```text
+spreadsheet
+Excel
+XLSX
+xlsx
+workbook
+dashboard
+tracker
+```
+
+**Usually combine with**
+
+```text
+Document Design
+File Validation
+```
+
+---
+
+## 12.5 CSV Creation
+
+**Path**
+
+```text
+documents/csv-creation/SKILL.md
+```
+
+**Purpose**
+
+Create clean and interoperable CSV datasets.
+
+**Use when**
+
+- Exporting datasets
+- Creating CSV files
+- Preparing machine-readable data
+- Creating training datasets
+- Creating import files
+
+**Triggers**
+
+```text
+CSV
+csv
+export data
+dataset export
+comma separated
+```
+
+**Usually combine with**
+
+```text
+File Validation
+```
+
+---
+
+## 12.6 Document Conversion
+
+**Path**
+
+```text
+documents/document-conversion/SKILL.md
+```
+
+**Purpose**
+
+Convert documents between formats while preserving content and structure where possible.
+
+**Use when**
+
+- DOCX → PDF
+- PDF → text
+- Markdown → PDF
+- Markdown → DOCX
+- PPTX → PDF
+- XLSX → CSV
+- CSV → XLSX
+- HTML → PDF
+
+**Triggers**
+
+```text
+convert
+conversion
+convert document
+export as
+change format
+DOCX to PDF
+PDF to DOCX
+XLSX to CSV
+CSV to XLSX
+```
+
+**Usually combine with**
+
+```text
+File Validation
+Completion Verification
+```
+
+---
+
+## 12.7 File Validation
+
+**Path**
+
+```text
+documents/file-validation/SKILL.md
+```
+
+**Purpose**
+
+Verify that generated or modified artifacts actually exist, open correctly, contain the expected content, and are usable.
+
+**Use when**
+
+- A file is generated
+- A document is converted
+- A presentation is created
+- A spreadsheet is generated
+- An artifact is delivered to the user
+
+**Triggers**
+
+```text
+validate file
+verify file
+check PDF
+check DOCX
+check PPTX
+check XLSX
+check CSV
+artifact validation
+```
+
+**Usually combine with**
+
+```text
+Completion Verification
+```
+
+**Important**
+
+Never treat:
+
+```text
+file generation command succeeded
+```
+
+as equivalent to:
+
+```text
+artifact is valid
+```
+
+---
+
+## 12.8 Document Design
+
+**Path**
+
+```text
+documents/document-design/SKILL.md
+```
+
+**Purpose**
+
+Design professional, readable, visually coherent documents and artifacts.
+
+**Use when**
+
+- Visual quality matters
+- Creating reports
+- Creating presentations
+- Creating polished PDFs
+- Creating resumes
+- Creating certificates
+- Creating dashboards
+- Creating user-facing documents
+
+**Triggers**
+
+```text
+design document
+professional document
+polished PDF
+beautiful report
+presentation design
+visual hierarchy
+document layout
+```
+
+**Usually combine with**
+
+```text
+PDF Creation
+DOCX Creation
+PPTX Creation
+Spreadsheet Creation
+File Validation
+```
+
+---
+
+# 13. Autonomous Agent Skills
 
 These skills govern how the agent operates rather than what programming language or platform it uses.
 
 ---
 
-## 12.1 Planning
+## 13.1 Planning
 
 **Path**
 
@@ -1497,7 +1899,7 @@ P0
 
 ---
 
-## 12.2 Tool Selection
+## 13.2 Tool Selection
 
 **Path**
 
@@ -1527,7 +1929,7 @@ P1
 
 ---
 
-## 12.3 Context Management
+## 13.3 Context Management
 
 **Path**
 
@@ -1562,7 +1964,7 @@ P1
 
 ---
 
-## 12.4 Error Recovery
+## 13.4 Error Recovery
 
 **Path**
 
@@ -1597,7 +1999,7 @@ P1
 
 ---
 
-## 12.5 Change Impact Analysis
+## 13.5 Change Impact Analysis
 
 **Path**
 
@@ -1631,7 +2033,7 @@ P1
 
 ---
 
-## 12.6 Workspace / Snapshot Management
+## 13.6 Workspace / Snapshot Management
 
 **Path**
 
@@ -1666,7 +2068,7 @@ P1/P2
 
 ---
 
-## 12.7 Autonomous Decision Making
+## 13.7 Autonomous Decision Making
 
 **Path**
 
@@ -1697,7 +2099,7 @@ P1
 
 ---
 
-# 13. Skill Chains
+# 14. Skill Chains
 
 The following chains are recommended combinations.
 
@@ -1870,7 +2272,145 @@ Planning
 
 ---
 
-# 14. Platform Routing
+# 15. Document & Artifact Skill Chains
+
+## Create PDF
+
+```text
+Planning
+→ Document Design
+→ PDF Creation
+→ File Validation
+→ Completion Verification
+```
+
+For a PDF based on an existing project:
+
+```text
+Repo Analysis
+→ Documentation
+→ Document Design
+→ PDF Creation
+→ File Validation
+→ Completion Verification
+```
+
+---
+
+## Create DOCX
+
+```text
+Planning
+→ Document Design
+→ DOCX Creation
+→ File Validation
+→ Completion Verification
+```
+
+---
+
+## Create PowerPoint Presentation
+
+```text
+Planning
+→ Document Design
+→ PPTX Creation
+→ File Validation
+→ Completion Verification
+```
+
+For a technical/project presentation:
+
+```text
+Planning
+→ Repo Analysis
+→ Documentation
+→ Document Design
+→ PPTX Creation
+→ File Validation
+→ Completion Verification
+```
+
+---
+
+## Create Spreadsheet
+
+```text
+Planning
+→ Spreadsheet Creation
+→ File Validation
+→ Completion Verification
+```
+
+For analytical spreadsheets:
+
+```text
+Planning
+→ Repo/Data Analysis
+→ Spreadsheet Creation
+→ Document Design
+→ File Validation
+→ Completion Verification
+```
+
+---
+
+## Create CSV
+
+```text
+Planning
+→ CSV Creation
+→ File Validation
+→ Completion Verification
+```
+
+---
+
+## Convert Document
+
+```text
+Planning
+→ Document Conversion
+→ File Validation
+→ Completion Verification
+```
+
+---
+
+## Create + Convert
+
+Example:
+
+```text
+"Create a polished DOCX report and also give me a PDF"
+
+Planning
+→ Documentation
+→ Document Design
+→ DOCX Creation
+→ File Validation
+→ Document Conversion
+→ File Validation
+→ Completion Verification
+```
+
+---
+
+## Create Presentation From Project
+
+```text
+Planning
+→ Repo Analysis
+→ Documentation
+→ Document Design
+→ PPTX Creation
+→ File Validation
+→ Completion Verification
+```
+
+---
+
+# 16. Platform Routing
 
 When the platform appears in the task, load the corresponding platform skill.
 
@@ -1901,7 +2441,7 @@ Completion Verification
 
 ---
 
-# 15. Frontend Routing
+# 17. Frontend Routing
 
 | Task | Primary Skills |
 |---|---|
@@ -1916,7 +2456,7 @@ Completion Verification
 
 ---
 
-# 16. Security Routing
+# 18. Security Routing
 
 | Situation | Skills |
 |---|---|
@@ -1932,13 +2472,65 @@ Completion Verification
 
 ---
 
-# 17. Risk-Based Skill Expansion
+# 19. Document Routing
+
+| Task | Primary Skills |
+|---|---|
+| Create PDF | PDF Creation, File Validation |
+| Create DOCX | DOCX Creation, File Validation |
+| Create PPTX | PPTX Creation, File Validation |
+| Create XLSX | Spreadsheet Creation, File Validation |
+| Create CSV | CSV Creation, File Validation |
+| Convert formats | Document Conversion, File Validation |
+| Polish document visually | Document Design |
+| Create polished PDF | Document Design, PDF Creation, File Validation |
+| Create polished DOCX | Document Design, DOCX Creation, File Validation |
+| Create polished PPTX | Document Design, PPTX Creation, File Validation |
+| Create dashboard spreadsheet | Spreadsheet Creation, Document Design, File Validation |
+| Generate report from codebase | Repo Analysis, Documentation, Document Design, relevant artifact skill, File Validation |
+| Generate study material | Planning, Document Design, relevant artifact skill, File Validation |
+
+---
+
+# 20. Artifact Validation Routing
+
+Whenever a generated artifact is user-facing, use:
+
+```text
+Artifact Creation
+→ File Validation
+→ Completion Verification
+```
+
+Examples:
+
+```text
+PDF Creation
+→ File Validation
+→ Completion Verification
+```
+
+```text
+PPTX Creation
+→ File Validation
+→ Completion Verification
+```
+
+```text
+DOCX Creation
+→ File Validation
+→ Completion Verification
+```
+
+---
+
+# 21. Risk-Based Skill Expansion
 
 Start with the minimum required skills.
 
 Then expand the skill set when risk increases.
 
-### Low Risk
+## Low Risk
 
 Example:
 
@@ -1956,7 +2548,7 @@ Completion Verification
 
 ---
 
-### Medium Risk
+## Medium Risk
 
 Example:
 
@@ -1981,7 +2573,7 @@ Completion Verification
 
 ---
 
-### High Risk
+## High Risk
 
 Example:
 
@@ -2007,7 +2599,44 @@ Completion Verification
 
 ---
 
-# 18. Skill Loading Rules
+## Artifact Risk
+
+Example:
+
+```text
+Create a professional 30-page PDF report
+```
+
+Load:
+
+```text
+Planning
+Documentation
+Document Design
+PDF Creation
+File Validation
+Completion Verification
+```
+
+If the source is an existing repository:
+
+```text
+Repo Analysis
++
+Documentation
++
+Document Design
++
+PDF Creation
++
+File Validation
++
+Completion Verification
+```
+
+---
+
+# 22. Skill Loading Rules
 
 ## Rule 1
 
@@ -2034,6 +2663,7 @@ Vercel
 Cloudflare
 UI/UX
 Browser Automation
+PPTX Creation
 ```
 
 unless the task expands into those areas.
@@ -2080,7 +2710,40 @@ The more dangerous the action, the more evidence the agent should require.
 
 ---
 
-# 19. Dynamic Skill Selection
+## Rule 6 — Generated Files Require Artifact Verification
+
+When the agent creates or converts a file, it must not stop at generation.
+
+Use:
+
+```text
+Generate
+→ Validate
+→ Verify
+→ Deliver
+```
+
+---
+
+## Rule 7 — Never Fabricate Artifact Results
+
+The agent must never invent:
+
+- file paths
+- filenames
+- page counts
+- slide counts
+- spreadsheet row counts
+- conversion success
+- URLs
+- download links
+- validation results
+
+Only report information actually verified by tools.
+
+---
+
+# 23. Dynamic Skill Selection
 
 The agent should classify the task before selecting skills.
 
@@ -2100,7 +2763,8 @@ TASK CLASSIFICATION
      ├── Dependency?
      ├── Git/GitHub?
      ├── Deployment?
-     └── Documentation?
+     ├── Documentation?
+     └── Document/Artifact?
      │
      ▼
 RISK ASSESSMENT
@@ -2127,7 +2791,7 @@ COMPLETION VERIFICATION
 
 ---
 
-# 20. Keyword Routing Map
+# 24. Keyword Routing Map
 
 The following keywords should strongly influence skill selection.
 
@@ -2197,12 +2861,80 @@ error
 → Error Recovery
 
 snapshot
-→ Workspace/Snapshot Management
+→ Workspace Management
+
+PDF
+→ PDF Creation
+→ File Validation
+
+DOCX
+→ DOCX Creation
+→ File Validation
+
+Word document
+→ DOCX Creation
+→ File Validation
+
+PPTX
+→ PPTX Creation
+→ File Validation
+
+PowerPoint
+→ PPTX Creation
+→ File Validation
+
+presentation
+→ PPTX Creation
+→ Document Design
+
+slides
+→ PPTX Creation
+→ Document Design
+
+spreadsheet
+→ Spreadsheet Creation
+→ File Validation
+
+Excel
+→ Spreadsheet Creation
+→ File Validation
+
+XLSX
+→ Spreadsheet Creation
+→ File Validation
+
+CSV
+→ CSV Creation
+→ File Validation
+
+convert
+→ Document Conversion
+→ File Validation
+
+document conversion
+→ Document Conversion
+→ File Validation
+
+professional document
+→ Document Design
+
+polished PDF
+→ Document Design
+→ PDF Creation
+→ File Validation
+
+polished report
+→ Document Design
+→ relevant artifact creation skill
+
+artifact
+→ File Validation
+→ Completion Verification
 ```
 
 ---
 
-# 21. Never-Do Rules
+# 25. Never-Do Rules
 
 The presence of a skill does not grant permission to perform an action.
 
@@ -2236,13 +2968,21 @@ permission to deploy anything
 Browser skill
 ≠
 permission to bypass authentication
+
+PDF Creation skill
+≠
+permission to access private files
+
+Document skill
+≠
+permission to upload documents externally
 ```
 
 Tool-level authorization remains authoritative.
 
 ---
 
-# 22. Final Verification Rule
+# 26. Final Verification Rule
 
 Before reporting task completion, the agent should ask:
 
@@ -2259,11 +2999,23 @@ Before reporting task completion, the agent should ask:
 10. Can I provide evidence for my completion claim?
 ```
 
+For generated artifacts, additionally ask:
+
+```text
+11. Does the artifact actually exist?
+12. Is it the expected file type?
+13. Can it be opened/read?
+14. Does it contain the required content?
+15. Is the layout usable?
+16. Did conversion preserve the required information?
+17. Is the final output path confirmed?
+```
+
 If the answer to an important verification question is unknown, the agent must report that uncertainty rather than inventing success.
 
 ---
 
-# 23. Skill Library Map
+# 27. Skill Library Map
 
 ```text
 agent-skills/
@@ -2317,6 +3069,16 @@ agent-skills/
 │   ├── documentation/
 │   └── code-documentation/
 │
+├── documents/
+│   ├── pdf-creation/
+│   ├── docx-creation/
+│   ├── pptx-creation/
+│   ├── spreadsheet-creation/
+│   ├── csv-creation/
+│   ├── document-conversion/
+│   ├── file-validation/
+│   └── document-design/
+│
 └── agent/
     ├── planning/
     ├── tool-selection/
@@ -2329,7 +3091,28 @@ agent-skills/
 
 ---
 
-# 24. Final Principle
+# 28. Skill Count
+
+The library currently contains:
+
+```text
+Core Engineering       9
+Frontend                4
+Web                     3
+Security                3
+Quality                 4
+Deployment              4
+Git/GitHub              2
+Documentation           2
+Documents & Artifacts   8
+Autonomous Agent        7
+─────────────────────────
+TOTAL                  46
+```
+
+---
+
+# 29. Final Principle
 
 The skill library should make the agent behave like an experienced engineer:
 
@@ -2344,13 +3127,45 @@ INSPECT
    ↓
 ACT
    ↓
-TEST
-   ↓
-VERIFY
+TEST / VALIDATE
    ↓
 REVIEW
    ↓
+VERIFY
+   ↓
 REPORT
+```
+
+For software:
+
+```text
+Understand
+→ Implement
+→ Test
+→ Build
+→ Review
+→ Verify
+```
+
+For documents:
+
+```text
+Understand
+→ Design
+→ Generate
+→ Validate
+→ Verify
+→ Deliver
+```
+
+For conversions:
+
+```text
+Inspect Source
+→ Convert
+→ Validate Output
+→ Compare Requirements
+→ Deliver
 ```
 
 The agent should not optimize for:
@@ -2371,7 +3186,8 @@ safely, and with evidence."
 # Version
 
 ```text
-Skill Library Index: v1.0
-Skills: 38
+Skill Library Index: v1.1
+Skills: 46
 Primary routing file: INDEX.md
+Last major update: Added Documents & Artifacts skill category
 ```
